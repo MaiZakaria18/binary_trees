@@ -20,10 +20,10 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	if (leftDepth > rightDepth)
 	{
-		return (leftDepth);
+		return (leftDepth + 1);
 	}
 	else
 	{
-		return (rightDepth);
+		return (rightDepth + 1);
 	}
 }
