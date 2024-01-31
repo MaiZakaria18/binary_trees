@@ -5,25 +5,27 @@
  * @tree:  is a pointer to the root node of the tree to check
  * Return: 1 if perfect binary tree otherwise return 0
 */
+#include "binary_trees.h"
+
+/**
+ * binary_tree_is_perfect - Checks if a binary tree is perfect
+ * @tree: Pointer to the root node of the tree
+ *
+ * Return: 1 if the tree is perfect, 0 otherwise
+ */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t leftDepth;
-	size_t rightDepth;
-	
 	if (tree == NULL)
-	{
+        return (0);
+
+    if (tree->left == NULL && tree->right == NULL)
+        return (1);
+
+	if ((tree->left == NULL && tree->right != NULL) return (0);
+		if (tree->left != NULL && tree->right == NULL))
 		return (0);
-	}
 
-	leftDepth = binary_tree_is_perfect(tree->left);
-	rightDepth = binary_tree_is_perfect(tree->right);
-
-	if (leftDepth > rightDepth)
-	{
-		return (leftDepth + 1);
-	}
-	else
-	{
-		return (rightDepth + 1);
-	}
+    return (binary_tree_is_perfect(tree->left) && 
+            binary_tree_is_perfect(tree->right) &&
+            binary_tree_height(tree->left) == binary_tree_height(tree->right));
 }
